@@ -1,24 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
-
+import React from 'react';
+import Menubar from './Components/Menu/Menubar';
+import Bisection from './Pages/Bisection/Bisection';
+import { BrowserRouter as Router,Switch,Route,Routes} from 'react-router-dom'
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+import FalsePosition from './Pages/FalsePosition/FalsePosition';
+import Onepoint from './Pages/Onepoint/OnePoint';
+import Newton from './Pages/Newton/Newton';
+import SeCant from './Pages/Secant/Secant';
+import Cramer from './Pages/Cramer/Cramer';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+    <Router>
+      <Menubar />
+        <Routes>
+          <Route exact path="/" element={<Bisection />} />
+          <Route exact path="/falsePosition" element={<FalsePosition />} />  
+          <Route exact path="/Onepoint" element={<Onepoint />} />  
+          <Route exact path="/Newton" element={<Newton />} />
+          <Route exact path="/SeCant" element={<SeCant />} />    
+          <Route exact path="/Cramer" element={<Cramer />} />  
+        </Routes>
+    </Router>
+    
   );
 }
 
